@@ -9,8 +9,11 @@ const PORT = process.env.PORT || 5000;
 
 // Configure CORS
 app.use(cors({
-    origin: 'https://sport-landing-page.vercel.app', // Allow requests from this origin
+    origin: 'https://sport-landing-page.vercel.app',
+    methods: ['GET', 'POST'],
+    allowedHeaders: ['Content-Type'],
 }));
+
 app.use(express.json());
 
 //connct to mongodb
