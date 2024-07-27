@@ -7,7 +7,10 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+// Configure CORS
+app.use(cors({
+    origin: 'https://sport-landing-page.vercel.app', // Allow requests from this origin
+}));
 app.use(express.json());
 
 //connct to mongodb
