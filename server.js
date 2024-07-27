@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors({
     origin: 'https://sport-landing-page.vercel.app',
     methods: ['GET', 'POST'],
-    allowedHeaders: ['Content-Type'],
+    allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
