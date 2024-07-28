@@ -31,8 +31,8 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', contactSchema);
 
 // Create a route to handle submissions
-app.post('/api/contact', async (req, res) => {
-    console.log('POST /api/contact received');
+app.post('/contact', async (req, res) => {
+    console.log('POST /contact received');
     const { name, email, message } = req.body;
     try {
         const newContact = new Contact({ name, email, message });
