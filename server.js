@@ -8,24 +8,24 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', 'https://sport-landing-page.vercel.app'); // You can replace '*' with the specific origin if needed
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', 'https://sport-landing-page.vercel.app'); // You can replace '*' with the specific origin if needed
+//     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+//     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
 
-    console.log('Request received:', req.method, req.url);
+//     console.log('Request received:', req.method, req.url);
 
-    next();
+//     next();
 
-  });
+//   });
 
 // Configure CORS
-// app.use(cors({
-//     origin: 'https://sport-landing-page.vercel.app',
-//     methods: ['GET', 'POST', 'OPTIONS'],  // Include OPTIONS method for preflight requests
-//     allowedHeaders: ['Content-Type', 'Authorization'],  // Allow Authorization header if needed
-//     credentials: true // Allow credentials if you are sending cookies or auth headers
-// }));
+app.use(cors({
+    origin: 'https://sport-landing-page.vercel.app',
+    methods: ['GET', 'POST', 'OPTIONS'],  // Include OPTIONS method for preflight requests
+    allowedHeaders: ['Content-Type', 'Authorization'],  // Allow Authorization header if needed
+    credentials: true // Allow credentials if you are sending cookies or auth headers
+}));
 
 app.use(express.json());
 
@@ -61,7 +61,7 @@ app.post('/api/contact', async (req,res) => {
 
 // Define routes 
 app.get('/', (req, res) => {
-    res.send('Welcome to the Sport Landing Page API');
+    res.send('Welcome to the Sport Landing Page API...');
 });
 
 app.listen(PORT, () => {
