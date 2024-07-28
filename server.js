@@ -7,6 +7,15 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*'); // You can replace '*' with the specific origin if needed
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+
+  });
+
 // Configure CORS
 app.use(cors({
     origin: 'https://sport-landing-page.vercel.app',
